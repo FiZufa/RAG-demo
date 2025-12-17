@@ -1,0 +1,9 @@
+fastapi>=0.95.0
+uvicorn[standard]>=0.22.0
+pydantic>=1.10.0
+qdrant-client>=1.7.0
+langgraph>=0.1.0
+
+# Optional / useful tooling
+# python-dotenv>=1.0.0  # if you want environment-based config
+# httpx>=0.24.0         # for async HTTP testing
