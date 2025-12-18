@@ -3,22 +3,43 @@ This project is a refactored version of a simple Retrieval-Augmented Generation 
 The refactor focuses on clean architecture, maintainability, and testability, while preserving the original behavior.
 
 The application allows:
-- Adding documents (/add)
+- Adding documents (`/add`)
 
-- Asking questions over stored documents (/ask)
+- Asking questions over stored documents (`/ask`)
 
-- Checking system status (/status)
+- Checking system status (`/status`)
 
 ## Goals of the Refactor
 The refactor prioritizes the following software engineering principles:
 
-- **Encapsulation** – related data and behavior are grouped together
+- **Encapsulation** – related data and behavior are grouped together.
+Each module owns one concept:
+  - embeddings
+  - storage
+  - workflow
+  - service
+  - API
 
 - **Separation of Concerns** – clear boundaries between web, business, and data layers
+  
+  | Layer           | Responsibility        |
+  |-----------------|-----------------------|
+  | API             | HTTP only             |
+  | Service         | Business use cases    |
+  | Workflow        | RAG logic             |
+  | Infrastructure  | Persistence           |
+  | Core            | Domain logic          |
+
 
 - **Explicit Dependencies** – no hidden globals; dependencies are passed explicitly
 
 - **Testability** – business logic can be tested independently of FastAPI
+  Example:
+  ```
+  RagWorkflow(fake_embedder, fake_store)
+  RagService(fake_embedder, fake_store, fake_workflow)
+  create_router(fake_service)
+  ```
 
 - **Readability** – predictable structure, clear naming, minimal surprise
 
