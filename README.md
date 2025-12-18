@@ -116,7 +116,7 @@ No business logic lives here.
 
 2. Install dependencies
     ```
-    pip install fastapi uvicorn
+    pip install -r requirements.txt
     ```
 
 3. Run the applications
