@@ -78,7 +78,7 @@ This project follows a [Clean Architecture–inspired design](https://medium.com
     core --> infra[infrastructure/]
   ```
 
-## Ket Components
+## Key Components
 ### RagService (`app/core/service.py`)
 Coordinates application use-cases:
 - Adding documents
@@ -169,6 +169,7 @@ POST /add
   "text": "FastAPI is a modern Python web framework."
 }
 ```
+![Add](response_imgs/add.png)
 
 ### Ask a qustion
 ```
@@ -177,11 +178,13 @@ POST /ask
   "question": "What is FastAPI?"
 }
 ```
+![Ask](response_imgs/ask.png)
 
 ### Check status
 ```
 GET /status
 ```
+![Status](response_imgs/status.png)
 
 ## Why This Design
 This structure reflects real-world backend engineering practices:
