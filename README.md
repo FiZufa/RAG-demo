@@ -50,6 +50,13 @@ This project follows a [Clean Architecture–inspired design](https://medium.com
 
 ## Dependency Direction
 
+  ```
+  flowchart LR
+    main[main.py] --> api[api/]
+    api --> core[core/]
+    core --> infra[infrastructure/]
+  ```
+
 ## Ket Components
 ### RagService (`app/core/service.py`)
 Coordinates application use-cases:
